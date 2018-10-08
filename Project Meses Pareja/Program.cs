@@ -15,6 +15,8 @@ namespace Project_Meses_Pareja
             month = Int32.Parse(Console.ReadLine());
             CheckMonth(month);
 
+
+            Console.ReadKey();
         }
         public static int CheckMonth(int month)
         {
