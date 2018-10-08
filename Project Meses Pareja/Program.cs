@@ -19,6 +19,8 @@ namespace Project_Meses_Pareja
             randYear2 = Int32.Parse(Console.ReadLine());
             year = Year(randYear1, randYear2);
             Console.WriteLine("El año generado es " + year);
+            Console.WriteLine(AskDays(year,month));
+            
 
             
             Console.ReadKey();
@@ -50,6 +52,27 @@ namespace Project_Meses_Pareja
                 year = random.Next(randYear2, randYear1);
             }
             return year;
+        }
+        public static int AskDays(int year, int month)
+        {
+            int maxDays;
+            if (month == 2 && DateTime.IsLeapYear(year))
+            {
+                maxDays = 29;
+            }
+            else if (month == 2 && !DateTime.IsLeapYear(year))
+            {
+                maxDays = 28;
+            }
+            else if (month == 3 || month == 6 || month == 9 || month == 11)
+            {
+                maxDays = 30;
+            }
+            else
+            {
+                maxDays = 31;
+            }
+            return maxDays;
         }
 
     }
