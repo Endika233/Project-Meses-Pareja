@@ -51,11 +51,11 @@ namespace Project_Meses_Pareja
             Random random = new Random();
             if (randYear2 > randYear1)
             {
-                year = random.Next(randYear1, randYear2);//Max value al final  
+                year = random.Next(randYear1, randYear2+1);//Max value al final  
             }
             else
             {
-                year = random.Next(randYear2, randYear1);
+                year = random.Next(randYear2, randYear1+1);//Se le suma uno porque coge el maximo-1
             }
             return year;
         }
