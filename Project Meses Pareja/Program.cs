@@ -22,7 +22,9 @@ namespace Project_Meses_Pareja
             maxDays = AskDays(year, month);
             Console.WriteLine("Introduzca un día");
             day = Int32.Parse(Console.ReadLine());
-            DayCheck(day,maxDays);
+            day=DayCheck(day,maxDays);
+            Console.WriteLine("Fecha actual " + day + "/" + month + "/" + year);
+            ShowNextDay(day, month, year, maxDays);
         
             
 
@@ -90,6 +92,21 @@ namespace Project_Meses_Pareja
                 }
             } while (day > maxDays);
             return day;
+        }
+        public static void ShowNextDay(int day, int month, int year,int maxDays)
+        {
+            day = day + 1;
+            if (day > maxDays)
+            {
+                month++;
+                day = 1;
+                if (month > 12)
+                {
+                    year = year + 1;
+                    month = 1;
+                }
+            }
+            Console.WriteLine("Día siguiente "+ day + "/" + month + "/" + year);
         }
 
     }
