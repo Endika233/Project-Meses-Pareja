@@ -10,7 +10,7 @@ namespace Project_Meses_Pareja
     {
         static void Main(string[] args)
         {
-            int month,randYear1,randYear2,year,maxDays;
+            int month,randYear1,randYear2,year,maxDays,day;
             Console.WriteLine("Escribe el mes");
             month = Int32.Parse(Console.ReadLine());
             CheckMonth(month);
@@ -20,6 +20,9 @@ namespace Project_Meses_Pareja
             year = Year(randYear1, randYear2);
             Console.WriteLine("El año generado es " + year);
             maxDays = AskDays(year, month);
+            Console.WriteLine("Introduzca un día");
+            day = Int32.Parse(Console.ReadLine());
+            DayCheck(day,maxDays);
         
             
 
@@ -76,6 +79,18 @@ namespace Project_Meses_Pareja
             return maxDays;
         }
         //Metodo para comprobar maximo dias
+        public static int DayCheck(int day,int maxDays)
+        {           
+            do
+            {
+                if (day > maxDays||day<1)
+                {
+                    Console.WriteLine("El día introducido no es correcto, introduzca otro");
+                    day = Int32.Parse(Console.ReadLine());
+                }
+            } while (day > maxDays);
+            return day;
+        }
 
     }
 }
